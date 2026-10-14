@@ -33,8 +33,8 @@ Los siguientes comandos son para PowerShell en Windows. Hay que ejecutarlos desd
 ### 1. Descargar el repositorio
 
 ```powershell
-git clone https://github.com/hectorphone/app-b-squeda-pel-culas.git
-cd app-b-squeda-pel-culas
+git clone https://github.com/hectorphone/app-busqueda-de-peliculas.git
+cd app-busqueda-de-peliculas
 ```
 
 También se puede descargar el ZIP desde GitHub, descomprimirlo y abrir la carpeta en VS Code.
