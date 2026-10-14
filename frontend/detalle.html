@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de película</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+</head>
+<body>
+    <main class="container my-4">
+        <a href="index.html" class="btn btn-secondary mb-3">
+            Volver al buscador
+        </a>
+
+        <p id="mensaje" role="status"></p>
+
+        <section id="detalle" class="row" hidden>
+            <div class="col-md-4">
+                <img id="cartel" class="img-fluid" alt="" hidden>
+            </div>
+
+            <div class="col-md-8">
+                <h1 id="titulo"></h1>
+
+                <p>
+                    <strong>Año:</strong>
+                    <span id="anio"></span>
+                </p>
+
+                <p>
+                    <strong>Director:</strong>
+                    <span id="director"></span>
+                </p>
+
+                <p>
+                    <strong>Actores:</strong>
+                    <span id="actores"></span>
+                </p>
+
+                <h2 class="h4">Sinopsis</h2>
+                <p id="sinopsis"></p>
+            </div>
+        </section>
+    </main>
+    <script src="js/detalle.js"></script>
+</body>
+</html>
