@@ -2,6 +2,7 @@ const parametros = new URLSearchParams(window.location.search);
 const imdbId = parametros.get("imdb_id");
 
 const mensaje = document.getElementById("mensaje");
+const formComentario = document.getElementById("formComentario");
 
 
 function cargarDetalle() {
@@ -43,6 +44,7 @@ function cargarDetalle() {
 
             document.getElementById("detalle").hidden = false;
             mensaje.textContent = "";
+
             cargarComentarios();
         })
         .catch(error => {
@@ -50,6 +52,8 @@ function cargarDetalle() {
             console.log("Error al cargar el detalle:", error);
         });
 }
+
+
 function cargarComentarios() {
     const mensajeComentarios = document.getElementById("mensajeComentarios");
     const comentarios = document.getElementById("comentarios");
@@ -96,5 +100,64 @@ function cargarComentarios() {
             console.log("Error al cargar los comentarios:", error);
         });
 }
+
+
+function guardarComentario(evento) {
+    evento.preventDefault();
+
+    const persona = document.getElementById("persona").value.trim();
+    const comentario = document.getElementById("comentario").value.trim();
+    const mensajeGuardar = document.getElementById("mensajeGuardar");
+    const boton = formComentario.querySelector("button");
+
+    if (!persona || !comentario) {
+        mensajeGuardar.textContent = "Escribe tu nombre y un comentario.";
+        return;
+    }
+
+    if (!imdbId) {
+        mensajeGuardar.textContent = "Falta el identificador de la pelicula.";
+        return;
+    }
+
+    // Mientras se guarda, evitamos enviar el comentario dos veces
+    boton.disabled = true;
+    mensajeGuardar.textContent = "Guardando comentario...";
+
+    fetch(`http://127.0.0.1:8000/movies/${encodeURIComponent(imdbId)}/comentarios`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            persona: persona,
+            comentario: comentario
+        })
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error HTTP: ${response.status}`);
+            }
+
+            return response.json();
+        })
+        .then(data => {
+            mensajeGuardar.textContent = data.mensaje;
+            formComentario.reset();
+
+            // Volvemos a cargar la lista para ver el comentario nuevo
+            cargarComentarios();
+        })
+        .catch(error => {
+            mensajeGuardar.textContent = "No se pudo guardar el comentario.";
+            console.log("Error al guardar el comentario:", error);
+        })
+        .finally(() => {
+            boton.disabled = false;
+        });
+}
+
+
+formComentario.addEventListener("submit", guardarComentario);
 
 cargarDetalle();
