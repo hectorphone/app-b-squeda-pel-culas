@@ -49,9 +49,42 @@
             <h2>Comentarios</h2>
             <p id="mensajeComentarios" role="status"></p>
             <div id="comentarios"></div>
+            <h3 class="h4 mt-4">Añadir un comentario</h3>
+
+            <form id="formComentario">
+                <div class="mb-3">
+                    <label for="persona" class="form-label">
+                        Tu nombre
+                    </label>
+                    <input
+                        type="text"
+                        id="persona"
+                        class="form-control"
+                        required
+                    >
+                </div>
+
+                <div class="mb-3">
+                    <label for="comentario" class="form-label">
+                        Tu comentario
+                    </label>
+                    <textarea
+                        id="comentario"
+                        class="form-control"
+                        rows="3"
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Guardar comentario
+                </button>
+            </form>
+
+            <p id="mensajeGuardar" class="mt-3" role="status"></p>
         </section>
     </main>
-    
+
     <script src="js/detalle.js"></script>
 </body>
 </html>
