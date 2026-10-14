@@ -12,11 +12,11 @@ Empecé haciendo una versión de consola para entender la lógica y después añ
 - Búsqueda por título y por título más año, en consola y en la web.
 - Resultados con cartel, título y año en la web.
 - Consulta del detalle de una película en consola, API y web.
-- Registro y lectura de comentarios desde la consola y la API.
+- Registro y lectura de comentarios desde la consola, la API y la web.
 - Guardado de comentarios con nombre, identificador de película y fecha actual.
 - Validación para evitar nombres y comentarios vacíos o formados solo por espacios.
 
-El proyecto sigue en desarrollo. Falta mostrar los comentarios y añadir el formulario para guardarlos en la página web de detalle. La puntuación de 1 a 5 y el promedio en estrellas son una funcionalidad opcional que todavía no está implementada.
+La página de detalle ya muestra los comentarios guardados y permite añadir uno nuevo. Al guardarlo, la lista se actualiza y el formulario se limpia. La puntuación de 1 a 5 y el promedio en estrellas son una funcionalidad opcional que todavía no está implementada.
 
 El año se utiliza como filtro adicional al título, según la aclaración del profesor. No se realiza una búsqueda únicamente por año.
 
@@ -92,6 +92,8 @@ En la segunda, arrancamos la página web:
 
 Abre el [buscador](http://127.0.0.1:5500/), escribe un título, añade el año si quieres y pulsa **Buscar**. El botón **Ver detalle** abre la información de la película seleccionada.
 
+Debajo del detalle puedes leer los comentarios y escribir el tuyo indicando tu nombre. Pulsa **Guardar comentario** y espera la confirmación. No se permiten campos vacíos ni formados solo por espacios.
+
 La [documentación de FastAPI](http://127.0.0.1:8000/docs) permite probar las rutas de la API.
 
 Mantén las dos terminales abiertas mientras utilizas la web. Para detener cada servidor, pulsa `Ctrl+C` en su terminal. La configuración CORS permite el frontend en `http://127.0.0.1:5500`.
@@ -143,6 +145,6 @@ La organización sigue el patrón MVC: el modelo trabaja con los datos, la vista
 
 ## Comprobaciones realizadas
 
-Se han probado búsquedas por título y año, selección y detalle en consola, registro y lectura de comentarios, persistencia después de reiniciar y rechazo de comentarios con nombre vacío. También se han probado las rutas de la API y la búsqueda web con y sin año.
+Se han probado búsquedas por título y año, selección y detalle en consola, registro y lectura de comentarios, persistencia después de reiniciar y rechazo de comentarios con nombre vacío. También se han probado las rutas de la API, la búsqueda web con y sin año, la lectura y el guardado de comentarios desde la web y el rechazo de un nombre formado solo por espacios sin crear otro registro.
 
 `prueba_model.py` consulta OMDb. `prueba_comentarios.py` inserta un comentario de prueba en la base de datos del proyecto cada vez que se ejecuta.
