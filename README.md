@@ -70,7 +70,7 @@ Se necesita conexión a Internet para consultar OMDb y cargar Bootstrap y los ca
 
 Este comando crea `moviesearch.db` y la tabla `comentario` a partir de `create_tables.sql`. Si ya existen, conserva los datos.
 
-El repositorio incluye una base de datos con comentarios de prueba. El script de creación no los borra.
+La base de datos se crea en tu ordenador y no se incluye en el repositorio. Al descargar el proyecto por primera vez y ejecutar este comando, se crea vacía. Si ya tienes una base de datos local, conserva sus comentarios.
 
 El identificador de película se guarda como texto para conservar el IMDb ID completo, por ejemplo `tt0133093`.
 
