@@ -1,4 +1,5 @@
-# Buscador de películas
+# Proyecto final Bootcamp Aprender a programar 
+# desde cero XXVI
 
 Este es mi proyecto final del Bootcamp Aprender a Programar desde Cero XXVI de KeepCoding.
 
